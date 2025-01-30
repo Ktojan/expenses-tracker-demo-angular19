@@ -1,16 +1,16 @@
- <h2 [style.color]="type == 'incomes' ? 'lightgreen' : '#9b4851'">{{type | uppercase}} records</h2>
+ <h2 [style.color]="type() == 'incomes' ? 'lightgreen' : '#9b4851'">{{type() | uppercase}} records</h2>
  <div class="flex just-between baseline">
    <mat-form-field>
     <mat-label>Filter by text</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Filter records" #input>
    </mat-form-field>
     <button mat-flat-button color="warning" style="color: firebrick; margin-bottom: 0.5rem;"
-     (click)="recordsService.removeLastRecord(type)" [attr.data-test]="'remove-last-button-'+ type">
+     (click)="recordsService.removeLastRecord(type())" [attr.data-test]="'remove-last-button-'+ type()">
       <mat-icon>backspace</mat-icon> Remove last record
     </button>
  </div>
 
- <table *ngIf="showTable" [attr.data-test]="'table-'+type" mat-table matSort [dataSource]="tableData" class="mat-elevation-z16">
+ <table *ngIf="showTable" [attr.data-test]="'table-'+type()" mat-table matSort [dataSource]="tableData" class="mat-elevation-z16">
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef>Name</th>
           <td mat-cell *matCellDef="let record">{{record.name}}</td>

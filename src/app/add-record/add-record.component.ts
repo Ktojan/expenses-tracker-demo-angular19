@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpperCasePipe } from '@angular/common';
 import { FormGroup, FormsModule } from '@angular/forms';
@@ -24,8 +24,8 @@ import { IRecord } from '../shared/interfaces';
   styleUrls: ['./add-record.component.scss']
 })
 export class AddRecordComponent {
-  @Input('type') recordType!: Record;
-  @Input('categories') categories!: string[];
+  readonly recordType = input.required<Record>({ alias: "type" });
+  readonly categories = input.required<string[]>();
 
   recordsService = inject(RecordsService);
 
@@ -35,7 +35,7 @@ export class AddRecordComponent {
   fields: FormlyFieldConfig[] = [];
 
   ngOnInit() {
-    this.model = this.recordType === Record.Exp ? startingExpRecord : startingIncRecord;
+    this.model = this.recordType() === Record.Exp ? startingExpRecord : startingIncRecord;
     this.fields = [
       {
         fieldGroupClassName: 'flex gap-15',
@@ -67,7 +67,7 @@ export class AddRecordComponent {
             props: {
               label: 'Select category',
               required: false,
-              options: this.categories.map(el => ({ label: el, value: el })),
+              options: this.categories().map(el => ({ label: el, value: el })),
             },
           },
           {
@@ -86,12 +86,12 @@ export class AddRecordComponent {
 
   onSubmit() {
     console.log('Added new record: ', this.model);
-    this.recordsService.addRecord(this.model, this.recordType);
+    this.recordsService.addRecord(this.model, this.recordType());
     this.resetModel();
   }
 
   resetModel() {
-    this.model = this.recordType === Record.Exp ? startingExpRecord : startingIncRecord;
+    this.model = this.recordType() === Record.Exp ? startingExpRecord : startingIncRecord;
   }
 
 }

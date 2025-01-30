@@ -1,4 +1,4 @@
-import { Component, inject, Input, NO_ERRORS_SCHEMA, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, NO_ERRORS_SCHEMA, OnDestroy, OnInit, ViewChild, input } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe, NgIf, UpperCasePipe } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
@@ -25,7 +25,7 @@ import { RecordsService } from '../records.service';
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class LogExpenseComponent implements OnDestroy, OnInit {
-  @Input('type') type!: Record;
+  readonly type = input.required<Record>();
   @ViewChild(MatTable) table!: MatTable<HTMLElement>;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -39,7 +39,7 @@ export class LogExpenseComponent implements OnDestroy, OnInit {
   ngOnInit() {
     this.recordsSub.subscribe((data:IRecordsStorage)  => {
       this.showTable = true;
-      this.downloadedTableData = data[this.type];
+      this.downloadedTableData = data[this.type()];
       this.tableData = [...this.downloadedTableData];
       // if (this.tableData) this.tableData.sort = this.sort;  //todo sorting
       if (this.table) this.table.renderRows();
