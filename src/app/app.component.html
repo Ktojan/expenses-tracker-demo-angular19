@@ -11,9 +11,12 @@
         <mat-card-content>
             <mat-chip-set aria-label="List of expenses categories" data-test="expence-categories-set">
               @for (category of expCategories; track category;) {
-              <mat-chip style="background-color: #9b4851">
-                <b data-test="category-chip">{{category}}</b>
+              <mat-chip style="background-color: #9b4851;">
+                <b style="color: white" data-test="category-chip">{{category}}</b>
               </mat-chip>
+            } @empty
+            {
+              <p>There are no categories so far</p>
             }
             </mat-chip-set>
         </mat-card-content>
@@ -29,6 +32,9 @@
               <mat-chip style="background-color: lightgreen;">
                 <b data-test="category-chip">{{category}}</b>
               </mat-chip>
+            } @empty
+            {
+              <p>There are no categories so far</p>
             }
             </mat-chip-set>
         </mat-card-content>
@@ -52,11 +58,6 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-<div id="githubqr">
-  <img src="githublink_qr.png" class="qr-for-github" />
-</div>
-
-
 <mat-expansion-panel id="balance-panel" [style.background]="$currentBalance() > 0 ? 'lightgreen' : '#9b4851'">
   <mat-expansion-panel-header>
     <mat-panel-title>
@@ -64,22 +65,8 @@
     </mat-panel-title>
     <mat-panel-description>
       <b id="balance-sum">${{ $currentBalance() }}</b>
-      <mat-icon>display_settings</mat-icon>
     </mat-panel-description>
   </mat-expansion-panel-header>
   <h2>Expense summary: ${{ $expensesSum() }}</h2>
-  <mat-chip-set>
-     @for (category of expCategories; track category;) { <!-- todo -->
-    <mat-chip>
-      <b>{{category}}: $55</b>
-    </mat-chip>
-  }</mat-chip-set>
-
   <h2>Incomes summary: ${{ $incomesSum() }}</h2>
-  <mat-chip-set>
-    @for (category of incCategories; track category;) {
-    <mat-chip>
-      <b>{{category}}: $55</b>
-    </mat-chip>
-  }</mat-chip-set>
 </mat-expansion-panel>

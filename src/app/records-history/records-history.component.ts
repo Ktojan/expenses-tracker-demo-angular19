@@ -1,12 +1,12 @@
 import { Component, inject, NO_ERRORS_SCHEMA, OnDestroy, OnInit, ViewChild, input } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DatePipe, NgIf, UpperCasePipe } from '@angular/common';
+import { DatePipe, UpperCasePipe } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTable, MatTableDataSource, MatTableModule} from '@angular/material/table';
-import { MatSort, MatSortModule, Sort} from '@angular/material/sort';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,7 +17,7 @@ import { RecordsService } from '../records.service';
 
 @Component({
   selector: 'app-records-history',
-  imports: [MatCardModule, MatFormFieldModule, NgIf, ReactiveFormsModule, MatIconModule, MatButtonModule,
+  imports: [MatCardModule, MatFormFieldModule, ReactiveFormsModule, MatIconModule, MatButtonModule,
     FormlyMaterialModule, MatTableModule, MatInputModule, MatSortModule, DatePipe, UpperCasePipe
   ],
   templateUrl: './records-history.component.html',
@@ -38,8 +38,8 @@ export class LogExpenseComponent implements OnDestroy, OnInit {
 
   ngOnInit() {
     this.recordsSub.subscribe((data:IRecordsStorage)  => {
-      this.showTable = true;
       this.downloadedTableData = data[this.type()];
+      this.showTable = this.downloadedTableData && this.downloadedTableData.length > 0;
       this.tableData = [...this.downloadedTableData];
       // if (this.tableData) this.tableData.sort = this.sort;  //todo sorting
       if (this.table) this.table.renderRows();
