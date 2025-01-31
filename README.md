@@ -9,6 +9,8 @@ Business logic in brief:
 - All data must be stored in localStorage so that records persist after a page reload.
 - Readable and understandable names of variables, classes, functions and methods
 
+![expences19_demo](https://github.com/user-attachments/assets/9b1dddd0-5d61-49f0-8ca8-5ea29bfd8c7a)
+
 ## Development server
 
 Run `npm install`, then `npm start` (Node >= 16) for a dev server. Navigate to `http://localhost:4200/`. 
@@ -25,3 +27,7 @@ or
 ng e2e
 ```
 
+![expences19_cypress](https://github.com/user-attachments/assets/32b8caef-540b-48b6-8b9f-eb152fd36558)
+
+P.S.
+Thanks Douglas Adams for his "The Hitchhiker's Guide to the Galaxy"! :-)
