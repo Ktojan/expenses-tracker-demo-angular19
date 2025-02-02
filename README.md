@@ -11,6 +11,10 @@ This is my demo Angular project of expences-incomes tracker for a possible "Gala
 - Readable and understandable names of variables, classes, functions and methods
 
 Not required: responsive design/crossbrowser, performance, security, ARIA.
+
+
+![tracker19_2](https://github.com/user-attachments/assets/898eea2f-ede8-4157-b3b0-0edfd3f04486)
+
 ![expences19_demo](https://github.com/user-attachments/assets/9b1dddd0-5d61-49f0-8ca8-5ea29bfd8c7a)
 
 ## Development server
