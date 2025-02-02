@@ -35,7 +35,7 @@ export class AddRecordComponent {
   fields: FormlyFieldConfig[] = [];
 
   ngOnInit() {
-    this.model = this.recordType() === Record.Exp ? startingExpRecord : startingIncRecord;
+    this.model = this.recordType() === Record.Exp ? {...startingExpRecord } : {...startingIncRecord };
     this.fields = [
       {
         fieldGroupClassName: 'flex gap-15',
@@ -91,7 +91,7 @@ export class AddRecordComponent {
   }
 
   resetModel() {
-    this.model = this.recordType() === Record.Exp ? startingExpRecord : startingIncRecord;
+    this.model = this.recordType() === Record.Exp ? {...startingExpRecord } : {...startingIncRecord };
   }
 
 }

@@ -11,12 +11,11 @@ import { RecordsService } from './records.service';
 import { AddRecordComponent } from './add-record/add-record.component';
 import { LogExpenseComponent } from './records-history/records-history.component';
 import { BasicCategories, Record } from './shared/constants';
-import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   imports: [AddRecordComponent, LogExpenseComponent, MatGridListModule, MatButtonModule, MatExpansionModule,
-    MatCardModule, MatIconModule, MatFormFieldModule, MatChipsModule, UpperCasePipe],
+    MatCardModule, MatIconModule, MatFormFieldModule, MatChipsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
