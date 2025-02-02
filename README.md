@@ -11,6 +11,7 @@ This is my demo Angular project of expences-incomes tracker for a possible "Gala
 - Readable and understandable names of variables, classes, functions and methods
 
 Not required: responsive design/crossbrowser, performance, security, ARIA.
+![expences19_demo](https://github.com/user-attachments/assets/9b1dddd0-5d61-49f0-8ca8-5ea29bfd8c7a)
 
 ## Development server
 
@@ -24,4 +25,7 @@ For end-to-end (e2e) testing run:
 npx cypress open    or    ng e2e
 ```
 
+![expences19_cypress](https://github.com/user-attachments/assets/32b8caef-540b-48b6-8b9f-eb152fd36558)
 
+P.S.
+Thanks Douglas Adams for his "The Hitchhiker's Guide to the Galaxy"! :-)
